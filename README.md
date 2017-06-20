@@ -16,13 +16,26 @@ StoredgeClient client = new StoredgeClient(api_key, api_secret, facility_uuid);
 ### Sending Requests
 ```
 try {
-  //Send Request
-  UnitList list = client.getAllUnits();
+    //Send GET request
+    List<Unit> list = client.getAllUnits();
 
-  //Read objects in list
-  for (Unit element : list.getUnits()) {
-      System.out.println("Unit - " + element.getName());
-  }
+    //Loop through list and print names of each unit
+    for (Unit element : list) {
+        System.out.println("Unit - " + element.getName());
+    }
+
+    //Send POST request
+    //Create tenant object to pass as json data in body of request
+    Tenant tenant = new Tenant();
+    tenant.setUsername("awesome_o_5000");
+    tenant.setPassword("supersecretpassword");
+
+    //Execute request
+    Tenant newTenant = client.tenantSignUp(TENANT_ID, tenant);
+
+    //Print name of new Tenant
+    System.out.println("\n" + newTenant.getUsername() + " has signed up!");
+} catch (Exception e) {
+    ...
 }
 ```
-
