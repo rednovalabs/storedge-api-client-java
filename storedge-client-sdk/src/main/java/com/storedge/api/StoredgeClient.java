@@ -1,13 +1,19 @@
 package main.java.com.storedge.api;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import main.java.com.storedge.api.interfaces.*;
+import main.java.com.storedge.api.models.Tenant;
+import main.java.com.storedge.api.models.Unit;
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.basic.DefaultOAuthConsumer;
 
-import java.io.*;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 /**
  * Created by rnlintern1 on 6/8/17.
@@ -27,8 +33,7 @@ public class StoredgeClient {
     /**
      * Api base url
      */
-    private final String URL = "https://api.storedgefms.com/docs/v1/";
-
+   private final String URL = "https://api.storedgefms.com/v1/";
     /**
      * Consumer for oauth 1.0
      */
@@ -223,15 +228,16 @@ public class StoredgeClient {
         return sb.toString();
     }
 
+    //Units
     /**
      * Method to get all units in a facility
      * @return List of units in facility
      * @throws Exception
      */
-    public UnitList getAllUnits() throws Exception {
+    public List<Unit> getAllUnits() throws Exception {
         String json = forward("GET", facility_id + "/units", null);
 
-        return gson.fromJson(json, UnitList.class);
+        return gson.fromJson(json, UnitList.class).getUnits();
     }
 
     /**
@@ -240,10 +246,10 @@ public class StoredgeClient {
      * @return Specific unit in facility
      * @throws Exception
      */
-    public SpecificUnit getSpecificUnit(String unit_id) throws Exception {
+    public Unit getSpecificUnit(String unit_id) throws Exception {
         String json = forward( "GET", facility_id + "/units/" + unit_id, null);
 
-        return gson.fromJson(json, SpecificUnit.class);
+        return gson.fromJson(json, SpecificUnit.class).getUnit();
     }
 
     /**
@@ -251,9 +257,44 @@ public class StoredgeClient {
      * @return List of available units in facility
      * @throws Exception
      */
-    public UnitList getAvailableUnits() throws Exception {
+    public List<Unit> getAvailableUnits() throws Exception {
         String json = forward("GET", facility_id + "/units/available", null);
 
-        return gson.fromJson(json, UnitList.class);
+        return gson.fromJson(json, UnitList.class).getUnits();
+    }
+
+    //Tenants
+    /**
+     * Method to sign up a tenant
+     * @param tenant_id - Id of tenant to be signed up
+     * @param tenantData - Tenant data (password and username)
+     * @return Tenant object
+     * @throws Exception
+     */
+    public Tenant tenantSignUp(String tenant_id, Tenant tenantData) throws Exception {
+        JsonObject tenant = new JsonObject();
+        tenant.add("tenant", gson.toJsonTree(tenantData));
+
+        String bodyData = gson.toJson(tenant);
+        String json = forward("POST", "/" + facility_id + "/tenants/" + tenant_id + "/sign_up", bodyData);
+
+        return gson.fromJson(json, SpecificTenant.class).getTenant();
+    }
+
+    /**
+     * Method to change password for tenant
+     * @param tenant_id - Id of tenant
+     * @param tenantData - Tenant data (current password, new password)
+     * @return Tenant object
+     * @throws Exception
+     */
+    public Tenant tenantChangePassword(String tenant_id, Tenant tenantData) throws Exception {
+        JsonObject tenant = new JsonObject();
+        tenant.add("tenant", gson.toJsonTree(tenantData));
+
+        String bodyData = gson.toJson(tenant);
+        String json = forward("PUT", "/" + facility_id + "/tenants/" + tenant_id + "/change_password", bodyData);
+
+        return gson.fromJson(json, SpecificTenant.class).getTenant();
     }
 }
