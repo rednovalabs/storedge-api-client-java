@@ -39,3 +39,25 @@ try {
     ...
 }
 ```
+
+### Console Output
+Console output for Test.java
+```
+Units (Page 2/5):
+• 202
+• 300
+• 301
+• 302
+• 400
+
+Unit 100 - group id: 3623b02f-e41c-4f21-8db1-c9a79c73ae85
+
+Available units:
+• 200
+• 201
+• 400
+• 500
+• 502
+
+awesome_o_5000 has signed up!
+```

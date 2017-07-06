@@ -1,9 +1,9 @@
 package main.java.com.storedge.api.helpers;
 
 /**
- * Created by vchadha on 6/20/17.
+ * Created by vchadha on 7/5/17.
  */
-public class Address {
+public class BillingAddress {
     private String id;
     private String address1;
     private String address2;
@@ -19,11 +19,13 @@ public class Address {
     private boolean invalid_data;
     private String label;
 
-    public Address() {
+    public BillingAddress() {
     }
 
-    public Address(String address1, String address2, String city, String state, String postal, String country, String full_address,
-                   double latitude, double longitude, String time_zone_id, String time_zone_offset, boolean invalid_data, String label) {
+    public BillingAddress(String id, String address1, String address2, String city, String state, String postal,
+                          String country, String full_address, double latitude, double longitude, String time_zone_id,
+                          String time_zone_offset, boolean invalid_data, String label) {
+        this.id = id;
         this.address1 = address1;
         this.address2 = address2;
         this.city = city;
@@ -37,6 +39,14 @@ public class Address {
         this.time_zone_offset = time_zone_offset;
         this.invalid_data = invalid_data;
         this.label = label;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getAddress1() {

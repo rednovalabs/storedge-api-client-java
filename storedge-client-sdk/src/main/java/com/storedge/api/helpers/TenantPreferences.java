@@ -1,7 +1,7 @@
 package main.java.com.storedge.api.helpers;
 
 /**
- * Created by rnlintern1 on 6/20/17.
+ * Created by vchadha on 6/20/17.
  */
 public class TenantPreferences {
     private String email_invoices;

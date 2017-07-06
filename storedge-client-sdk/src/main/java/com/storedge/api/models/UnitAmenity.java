@@ -1,7 +1,7 @@
 package main.java.com.storedge.api.models;
 
 /**
- * Created by rnlintern1 on 6/8/17.
+ * Created by vchadha on 6/8/17.
  */
 public class UnitAmenity {
 
