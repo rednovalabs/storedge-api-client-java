@@ -8,32 +8,46 @@ Java SDK for storedge API using [signpost](https://github.com/mttkay/signpost), 
 ```
 String api_key  = "[INSERT]";
 String api_secret = "[INSERT]";
-String facility_uuid = "[INSERT]]";
-StoredgeClient client = new StoredgeClient(api_key, api_secret, facility_uuid);
+String base_url = "[INSERT]]";
+StoredgeClient client = new StoredgeClient(api_key, api_secret, base_url);
 
 ```
 
 ### Sending Requests
 ```
 try {
-    //Send GET request
-    List<Unit> list = client.getAllUnits();
+    //GET request
+    //Options (You can use the premade options or add custom options (params for get methods work here too [startDate etc])
+    Options options = new Options();
+    options.setPageNum(2);
+    options.setPerPage(5);
+    UnitList list = client.getAllUnits(FACILITY_ID, options);
 
-    //Loop through list and print names of each unit
-    for (Unit element : list) {
-        System.out.println("Unit - " + element.getName());
+    System.out.println("\nUnits (Page " + list.getMeta().getPagination().getCurrent_page() + "/" + list.getMeta().getPagination().getTotal_pages()+ "):");
+    for (Unit element : list.getUnits()) {
+        System.out.println("• " + element.getName());
     }
 
-    //Send POST request
-    //Create tenant object to pass as json data in body of request
+    //You don't have to include options
+    Unit unit = client.getSpecificUnit(FACILITY_ID, UNIT_ID, null).getUnit();
+    System.out.println("\nUnit " + unit.getName() + " - group id: " + unit.getUnit_group_id());
+
+    List<Unit> list2 = client.getAvailableUnits(FACILITY_ID, null).getUnits();
+
+    System.out.println("\nAvailable units: ");
+    for (Unit element : list2) {
+        System.out.println("• " + element.getName());
+    }
+
+    //POST request
     Tenant tenant = new Tenant();
     tenant.setUsername("awesome_o_5000");
     tenant.setPassword("supersecretpassword");
 
-    //Execute request
-    Tenant newTenant = client.tenantSignUp(TENANT_ID, tenant);
-
-    //Print name of new Tenant
+    //You can resuse the same options object
+    options.clear();
+    options.setSparseFields("fields[tenant]", "id,username");
+    Tenant newTenant = client.tenantSignUp(FACILITY_ID, TENANT_ID, tenant, options).getTenant();
     System.out.println("\n" + newTenant.getUsername() + " has signed up!");
 } catch (Exception e) {
     ...
