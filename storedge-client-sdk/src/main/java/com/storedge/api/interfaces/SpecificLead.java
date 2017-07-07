@@ -1,51 +1,51 @@
 package main.java.com.storedge.api.interfaces;
 
 import main.java.com.storedge.api.helpers.Meta;
-import main.java.com.storedge.api.models.Tenant;
+import main.java.com.storedge.api.models.Lead;
 
 /**
- * Created by vchadha on 6/16/17.
+ * Created by vchadha on 7/6/17.
  */
-public class SpecificTenant {
+public class SpecificLead {
     /**
-     * tenant object
+     * Lead object
      */
-    private Tenant tenant;
+    private Lead lead;
 
     /**
-     * meta object
+     * Meta object
      */
     private Meta meta;
 
     /**
      * Parameterized Constructor
-     * @param tenant
+     * @param lead
      * @param meta
      */
-    public SpecificTenant(Tenant tenant, Meta meta) {
-        this.tenant = tenant;
+    public SpecificLead(Lead lead, Meta meta) {
+        this.lead = lead;
         this.meta = meta;
     }
 
     /**
-     * Get tenant object
-     * @return
+     * Get lead object
+     * @return lead object
      */
-    public Tenant getTenant() {
-        return tenant;
+    public Lead getLead() {
+        return lead;
     }
 
     /**
-     * Set tenant object
-     * @param tenant
+     * Set object lead
+     * @param lead
      */
-    public void setTenant(Tenant tenant) {
-        this.tenant = tenant;
+    public void setLead(Lead lead) {
+        this.lead = lead;
     }
 
     /**
      * Get meta object
-     * @return
+     * @return meta object
      */
     public Meta getMeta() {
         return meta;

@@ -6,7 +6,7 @@ import main.java.com.storedge.api.helpers.PhoneNumber;
 import main.java.com.storedge.api.helpers.TenantPreferences;
 
 /**
- * Created by rnlintern1 on 6/16/17.
+ * Created by vchadha on 6/16/17.
  */
 public class Tenant {
     private String id;
