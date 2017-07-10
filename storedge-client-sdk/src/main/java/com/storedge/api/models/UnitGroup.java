@@ -7,36 +7,35 @@ public class UnitGroup {
     private String id;
     private String group_id;
     private String name;
-    private int available_units_count;
-    private int total_units_count;
+    private Integer available_units_count;
+    private Integer total_units_count;
     private String size;
-    private double price;
-    private double standard_rate;
-    private int floor;
-    private double reduced_price;
-    private double occupancy_percent;
-    private double area;
-    private double length;
-    private double width;
-    private double height;
-    private double due_at_move_in;
-    private double due_monthly;
+    private Double price;
+    private Double standard_rate;
+    private Integer floor;
+    private Double reduced_price;
+    private Double occupancy_percent;
+    private Double area;
+    private Double length;
+    private Double width;
+    private Double height;
+    private Double due_at_move_in;
+    private Double due_monthly;
     private String attribute_description;
     private String description;
-    private double average_rent;
+    private Double average_rent;
     private UnitAmenity[] unit_amenities;
     private UnitType unit_type;
-    private double[] invoiceable_fees;
+    private Double[] invoiceable_fees;
     private DiscountPlan[] discount_plans;
 
     public UnitGroup() {
     }
 
-    public UnitGroup(String id, String group_id, String name, int available_units_count, int total_units_count, String size,
-                     double price, double standard_rate, int floor, double reduced_price, double occupancy_percent, double area,
-                     double length, double width, double height, double due_at_move_in, double due_monthly, String attribute_description,
-                     String description, double average_rent, UnitAmenity[] unit_amenities, UnitType unit_type,
-                     double[] invoiceable_fees, DiscountPlan[] discount_plans) {
+    public UnitGroup(String id, String group_id, String name, Integer available_units_count, Integer total_units_count, String size,
+                     Double price, Double standard_rate, Integer floor, Double reduced_price, Double occupancy_percent, Double area,
+                     Double length, Double width, Double height, Double due_at_move_in, Double due_monthly, String attribute_description,
+                     String description, Double average_rent, UnitAmenity[] unit_amenities, UnitType unit_type, Double[] invoiceable_fees, DiscountPlan[] discount_plans) {
         this.id = id;
         this.group_id = group_id;
         this.name = name;
@@ -87,19 +86,19 @@ public class UnitGroup {
         this.name = name;
     }
 
-    public int getAvailable_units_count() {
+    public Integer getAvailable_units_count() {
         return available_units_count;
     }
 
-    public void setAvailable_units_count(int available_units_count) {
+    public void setAvailable_units_count(Integer available_units_count) {
         this.available_units_count = available_units_count;
     }
 
-    public int getTotal_units_count() {
+    public Integer getTotal_units_count() {
         return total_units_count;
     }
 
-    public void setTotal_units_count(int total_units_count) {
+    public void setTotal_units_count(Integer total_units_count) {
         this.total_units_count = total_units_count;
     }
 
@@ -111,91 +110,91 @@ public class UnitGroup {
         this.size = size;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public double getStandard_rate() {
+    public Double getStandard_rate() {
         return standard_rate;
     }
 
-    public void setStandard_rate(double standard_rate) {
+    public void setStandard_rate(Double standard_rate) {
         this.standard_rate = standard_rate;
     }
 
-    public int getFloor() {
+    public Integer getFloor() {
         return floor;
     }
 
-    public void setFloor(int floor) {
+    public void setFloor(Integer floor) {
         this.floor = floor;
     }
 
-    public double getReduced_price() {
+    public Double getReduced_price() {
         return reduced_price;
     }
 
-    public void setReduced_price(double reduced_price) {
+    public void setReduced_price(Double reduced_price) {
         this.reduced_price = reduced_price;
     }
 
-    public double getOccupancy_percent() {
+    public Double getOccupancy_percent() {
         return occupancy_percent;
     }
 
-    public void setOccupancy_percent(double occupancy_percent) {
+    public void setOccupancy_percent(Double occupancy_percent) {
         this.occupancy_percent = occupancy_percent;
     }
 
-    public double getArea() {
+    public Double getArea() {
         return area;
     }
 
-    public void setArea(double area) {
+    public void setArea(Double area) {
         this.area = area;
     }
 
-    public double getLength() {
+    public Double getLength() {
         return length;
     }
 
-    public void setLength(double length) {
+    public void setLength(Double length) {
         this.length = length;
     }
 
-    public double getWidth() {
+    public Double getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
+    public void setWidth(Double width) {
         this.width = width;
     }
 
-    public double getHeight() {
+    public Double getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(Double height) {
         this.height = height;
     }
 
-    public double getDue_at_move_in() {
+    public Double getDue_at_move_in() {
         return due_at_move_in;
     }
 
-    public void setDue_at_move_in(double due_at_move_in) {
+    public void setDue_at_move_in(Double due_at_move_in) {
         this.due_at_move_in = due_at_move_in;
     }
 
-    public double getDue_monthly() {
+    public Double getDue_monthly() {
         return due_monthly;
     }
 
-    public void setDue_monthly(double due_monthly) {
+    public void setDue_monthly(Double due_monthly) {
         this.due_monthly = due_monthly;
     }
 
@@ -215,11 +214,11 @@ public class UnitGroup {
         this.description = description;
     }
 
-    public double getAverage_rent() {
+    public Double getAverage_rent() {
         return average_rent;
     }
 
-    public void setAverage_rent(double average_rent) {
+    public void setAverage_rent(Double average_rent) {
         this.average_rent = average_rent;
     }
 
@@ -239,11 +238,11 @@ public class UnitGroup {
         this.unit_type = unit_type;
     }
 
-    public double[] getInvoiceable_fees() {
+    public Double[] getInvoiceable_fees() {
         return invoiceable_fees;
     }
 
-    public void setInvoiceable_fees(double[] invoiceable_fees) {
+    public void setInvoiceable_fees(Double[] invoiceable_fees) {
         this.invoiceable_fees = invoiceable_fees;
     }
 

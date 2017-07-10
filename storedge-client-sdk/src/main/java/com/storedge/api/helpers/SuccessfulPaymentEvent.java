@@ -7,8 +7,8 @@ import main.java.com.storedge.api.models.PaymentMethod;
  */
 public class SuccessfulPaymentEvent {
     private String id;
-    private double amount;
-    private boolean success;
+    private Double amount;
+    private Boolean success;
     private String date;
     private PaymentMethod payment_method;
 

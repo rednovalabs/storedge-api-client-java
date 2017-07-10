@@ -10,18 +10,18 @@ import main.java.com.storedge.api.helpers.TenantPreferences;
  */
 public class Tenant {
     private String id;
-    private long account_number;
+    private Long account_number;
     private String first_name;
     private String last_name;
     private String middle_initial;
     private String email;
-    private boolean tax_exempt;
-    private boolean is_military;
-    private boolean is_business;
+    private Boolean tax_exempt;
+    private Boolean is_military;
+    private Boolean is_business;
     private String business_name;
     private String last_sign_in_at;
     private String title;
-    private boolean delinquent;
+    private Boolean delinquent;
     private String current_ledger_ids[];
     private TenantPreferences preferences;
     private String username;
@@ -35,10 +35,10 @@ public class Tenant {
     private String vehicle_license_plate_number;
     private String vehilce_license_state;
     private String vehicle_description;
-    private boolean has_tenant_portal_account;
+    private Boolean has_tenant_portal_account;
     private String created_at;
-    private boolean gate_24_hour_access;
-    private boolean active;
+    private Boolean gate_24_hour_access;
+    private Boolean active;
     private String tenant_account_kind_name;
     private PhoneNumber[] phone_numbers;
     private PhoneNumber[] phone_numbers_attributes;
@@ -57,13 +57,13 @@ public class Tenant {
     public Tenant() {
     }
 
-    public Tenant(String id, long account_number, String first_name, String last_name, String middle_initial, String email,
-                  boolean tax_exempt, boolean is_military, boolean is_business, String business_name, String last_sign_in_at,
-                  String title, boolean delinquent, String[] current_ledger_ids, TenantPreferences preferences, String username,
+    public Tenant(String id, Long account_number, String first_name, String last_name, String middle_initial, String email,
+                  Boolean tax_exempt, Boolean is_military, Boolean is_business, String business_name, String last_sign_in_at,
+                  String title, Boolean delinquent, String[] current_ledger_ids, TenantPreferences preferences, String username,
                   String login, String password, String reset_token, String current_password, String new_password,
                   String drivers_license_number, String drivers_license_state, String vehicle_license_plate_number,
-                  String vehilce_license_state, String vehicle_description, boolean has_tenant_portal_account, String created_at,
-                  boolean gate_24_hour_access, boolean active, String tenant_account_kind_name, PhoneNumber[] phone_numbers,
+                  String vehilce_license_state, String vehicle_description, Boolean has_tenant_portal_account, String created_at,
+                  Boolean gate_24_hour_access, Boolean active, String tenant_account_kind_name, PhoneNumber[] phone_numbers,
                   PhoneNumber[] phone_numbers_attributes, MailingAddress mailing_address, MailingAddress mailing_address_attributes,
                   Address[] addresses, String facility_id, String[] previous_ledger_ids, String[] lead_ids, String[] closed_lead_ids,
                   String[] contact_ids, String[] support_case_ids, String[] event_ids, String[] password_recovery_question_ids) {
@@ -121,11 +121,11 @@ public class Tenant {
         this.id = id;
     }
 
-    public long getAccount_number() {
+    public Long getAccount_number() {
         return account_number;
     }
 
-    public void setAccount_number(long account_number) {
+    public void setAccount_number(Long account_number) {
         this.account_number = account_number;
     }
 
@@ -161,27 +161,27 @@ public class Tenant {
         this.email = email;
     }
 
-    public boolean isTax_exempt() {
+    public Boolean getTax_exempt() {
         return tax_exempt;
     }
 
-    public void setTax_exempt(boolean tax_exempt) {
+    public void setTax_exempt(Boolean tax_exempt) {
         this.tax_exempt = tax_exempt;
     }
 
-    public boolean isIs_military() {
+    public Boolean getIs_military() {
         return is_military;
     }
 
-    public void setIs_military(boolean is_military) {
+    public void setIs_military(Boolean is_military) {
         this.is_military = is_military;
     }
 
-    public boolean isIs_business() {
+    public Boolean getIs_business() {
         return is_business;
     }
 
-    public void setIs_business(boolean is_business) {
+    public void setIs_business(Boolean is_business) {
         this.is_business = is_business;
     }
 
@@ -209,11 +209,11 @@ public class Tenant {
         this.title = title;
     }
 
-    public boolean isDelinquent() {
+    public Boolean getDelinquent() {
         return delinquent;
     }
 
-    public void setDelinquent(boolean delinquent) {
+    public void setDelinquent(Boolean delinquent) {
         this.delinquent = delinquent;
     }
 
@@ -321,11 +321,11 @@ public class Tenant {
         this.vehicle_description = vehicle_description;
     }
 
-    public boolean isHas_tenant_portal_account() {
+    public Boolean getHas_tenant_portal_account() {
         return has_tenant_portal_account;
     }
 
-    public void setHas_tenant_portal_account(boolean has_tenant_portal_account) {
+    public void setHas_tenant_portal_account(Boolean has_tenant_portal_account) {
         this.has_tenant_portal_account = has_tenant_portal_account;
     }
 
@@ -337,19 +337,19 @@ public class Tenant {
         this.created_at = created_at;
     }
 
-    public boolean isGate_24_hour_access() {
+    public Boolean getGate_24_hour_access() {
         return gate_24_hour_access;
     }
 
-    public void setGate_24_hour_access(boolean gate_24_hour_access) {
+    public void setGate_24_hour_access(Boolean gate_24_hour_access) {
         this.gate_24_hour_access = gate_24_hour_access;
     }
 
-    public boolean isActive() {
+    public Boolean getActive() {
         return active;
     }
 
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         this.active = active;
     }
 

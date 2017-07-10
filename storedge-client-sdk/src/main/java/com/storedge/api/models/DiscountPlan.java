@@ -11,22 +11,22 @@ public class DiscountPlan {
     private String description;
     private String availability_text;
     private String kind;
-    private boolean min_occupancy_required;
-    private int min_occupancy_months;
-    private boolean prepay_required;
-    private int prepay_months;
+    private Boolean min_occupancy_required;
+    private Integer min_occupancy_months;
+    private Boolean prepay_required;
+    private Integer prepay_months;
     private String start_date;
     private String end_date;
-    private boolean auto_apply;
+    private Boolean auto_apply;
     private String promotion_type;
-    private boolean deleted;
-    private boolean turned_on;
-    private boolean available_for_all_facilities;
+    private Boolean deleted;
+    private Boolean turned_on;
+    private Boolean available_for_all_facilities;
     private String round_to_nearest;
-    private boolean hide_from_website;
-    private boolean move_in_only;
+    private Boolean hide_from_website;
+    private Boolean move_in_only;
     private String tenant_account_kind_id;
-    private boolean existing_tenant_only;
+    private Boolean existing_tenant_only;
     private String priority;
     private DiscountPlanDiscounts[] discount_plan_discounts;
     private DiscountPlanControls[] discount_plan_controls;
@@ -36,12 +36,12 @@ public class DiscountPlan {
     public DiscountPlan() {
     }
 
-    public DiscountPlan(String id, String name, String description, String availability_text, String kind, boolean min_occupancy_required,
-                        int min_occupancy_months, boolean prepay_required, int prepay_months, String start_date, String end_date,
-                        boolean auto_apply, String promotion_type, boolean deleted, boolean turned_on, boolean available_for_all_facilities,
-                        String round_to_nearest, boolean hide_from_website, boolean move_in_only, String tenant_account_kind_id,
-                        boolean existing_tenant_only, String priority, DiscountPlanDiscounts[] discount_plan_discounts,
-                        DiscountPlanControls[] discount_plan_controls, String always_discount_plan_discount_id, String[] facility_ids) {
+    public DiscountPlan(String id, String name, String description, String availability_text, String kind, Boolean min_occupancy_required,
+                        Integer min_occupancy_months, Boolean prepay_required, Integer prepay_months, String start_date, String end_date,
+                        Boolean auto_apply, String promotion_type, Boolean deleted, Boolean turned_on, Boolean available_for_all_facilities,
+                        String round_to_nearest, Boolean hide_from_website, Boolean move_in_only, String tenant_account_kind_id, Boolean existing_tenant_only,
+                        String priority, DiscountPlanDiscounts[] discount_plan_discounts, DiscountPlanControls[] discount_plan_controls,
+                        String always_discount_plan_discount_id, String[] facility_ids) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -110,35 +110,35 @@ public class DiscountPlan {
         this.kind = kind;
     }
 
-    public boolean isMin_occupancy_required() {
+    public Boolean getMin_occupancy_required() {
         return min_occupancy_required;
     }
 
-    public void setMin_occupancy_required(boolean min_occupancy_required) {
+    public void setMin_occupancy_required(Boolean min_occupancy_required) {
         this.min_occupancy_required = min_occupancy_required;
     }
 
-    public int getMin_occupancy_months() {
+    public Integer getMin_occupancy_months() {
         return min_occupancy_months;
     }
 
-    public void setMin_occupancy_months(int min_occupancy_months) {
+    public void setMin_occupancy_months(Integer min_occupancy_months) {
         this.min_occupancy_months = min_occupancy_months;
     }
 
-    public boolean isPrepay_required() {
+    public Boolean getPrepay_required() {
         return prepay_required;
     }
 
-    public void setPrepay_required(boolean prepay_required) {
+    public void setPrepay_required(Boolean prepay_required) {
         this.prepay_required = prepay_required;
     }
 
-    public int getPrepay_months() {
+    public Integer getPrepay_months() {
         return prepay_months;
     }
 
-    public void setPrepay_months(int prepay_months) {
+    public void setPrepay_months(Integer prepay_months) {
         this.prepay_months = prepay_months;
     }
 
@@ -158,11 +158,11 @@ public class DiscountPlan {
         this.end_date = end_date;
     }
 
-    public boolean isAuto_apply() {
+    public Boolean getAuto_apply() {
         return auto_apply;
     }
 
-    public void setAuto_apply(boolean auto_apply) {
+    public void setAuto_apply(Boolean auto_apply) {
         this.auto_apply = auto_apply;
     }
 
@@ -174,27 +174,27 @@ public class DiscountPlan {
         this.promotion_type = promotion_type;
     }
 
-    public boolean isDeleted() {
+    public Boolean getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(boolean deleted) {
+    public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
     }
 
-    public boolean isTurned_on() {
+    public Boolean getTurned_on() {
         return turned_on;
     }
 
-    public void setTurned_on(boolean turned_on) {
+    public void setTurned_on(Boolean turned_on) {
         this.turned_on = turned_on;
     }
 
-    public boolean isAvailable_for_all_facilities() {
+    public Boolean getAvailable_for_all_facilities() {
         return available_for_all_facilities;
     }
 
-    public void setAvailable_for_all_facilities(boolean available_for_all_facilities) {
+    public void setAvailable_for_all_facilities(Boolean available_for_all_facilities) {
         this.available_for_all_facilities = available_for_all_facilities;
     }
 
@@ -206,19 +206,19 @@ public class DiscountPlan {
         this.round_to_nearest = round_to_nearest;
     }
 
-    public boolean isHide_from_website() {
+    public Boolean getHide_from_website() {
         return hide_from_website;
     }
 
-    public void setHide_from_website(boolean hide_from_website) {
+    public void setHide_from_website(Boolean hide_from_website) {
         this.hide_from_website = hide_from_website;
     }
 
-    public boolean isMove_in_only() {
+    public Boolean getMove_in_only() {
         return move_in_only;
     }
 
-    public void setMove_in_only(boolean move_in_only) {
+    public void setMove_in_only(Boolean move_in_only) {
         this.move_in_only = move_in_only;
     }
 
@@ -230,11 +230,11 @@ public class DiscountPlan {
         this.tenant_account_kind_id = tenant_account_kind_id;
     }
 
-    public boolean isExisting_tenant_only() {
+    public Boolean getExisting_tenant_only() {
         return existing_tenant_only;
     }
 
-    public void setExisting_tenant_only(boolean existing_tenant_only) {
+    public void setExisting_tenant_only(Boolean existing_tenant_only) {
         this.existing_tenant_only = existing_tenant_only;
     }
 

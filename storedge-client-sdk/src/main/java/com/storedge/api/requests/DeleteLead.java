@@ -1,4 +1,6 @@
-package main.java.com.storedge.api.helpers;
+package main.java.com.storedge.api.requests;
+
+import main.java.com.storedge.api.helpers.Note;
 
 /**
  * Created by vchadha on 7/6/17.

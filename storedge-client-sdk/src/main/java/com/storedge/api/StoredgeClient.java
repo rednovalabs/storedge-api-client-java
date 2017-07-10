@@ -2,10 +2,9 @@ package main.java.com.storedge.api;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import main.java.com.storedge.api.helpers.DeleteLead;
 import main.java.com.storedge.api.interfaces.*;
-import main.java.com.storedge.api.models.Tenant;
-import main.java.com.storedge.api.requests.Options;
+import main.java.com.storedge.api.models.*;
+import main.java.com.storedge.api.requests.*;
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.basic.DefaultOAuthConsumer;
 
@@ -30,7 +29,6 @@ public class StoredgeClient {
      * Api base url
      */
     private String base_url;
-
     /**
      * Consumer for oauth 1.0
      */
@@ -42,7 +40,7 @@ public class StoredgeClient {
     private Gson gson;
 
     /**
-     * Initialize base_url, gson, and create signpost consumer
+     * Initialize facility id, gson, and create signpost consumer
      * @param api_key
      * @param secret
      * @param base_url
@@ -159,8 +157,7 @@ public class StoredgeClient {
     /**
      * Creates delete http request and authorizes with consumer
      * @param url - Uses url to create http request
-     * @param bodyData - If delete method takes json data, it will be added to body of request
-     * @return parsed json data from http request (meta data)
+     * @return null
      * @throws Exception
      */
     private String delete(URL url, String bodyData) throws Exception {
@@ -231,11 +228,6 @@ public class StoredgeClient {
         return sb.toString();
     }
 
-    /**
-     * Builds the query string to be appended to the url of a request
-     * @param options - contains all the user set options to be applied
-     * @return query string to be appended to url
-     */
     private String load(Options options) {
         if (options == null)
             return "";
@@ -259,39 +251,75 @@ public class StoredgeClient {
         return query.toString();
     }
 
-    //Units
+    //Leads
     /**
-     * Method to get all units in a facility
-     * @return Unit List
+     * Method to get all leads
+     * @param facility_id
+     * @param options
+     * @return Lead list obj
      * @throws Exception
      */
-    public UnitList getAllUnits(String facility_id, Options options) throws Exception {
-        String json = forward("GET", facility_id + "/units" + load(options), null);
+    public LeadList getLeads(String facility_id, Options options) {
+        String json = "";
 
-        return gson.fromJson(json, UnitList.class);
+        try {
+            json = forward("GET", facility_id + "/leads" + load(options), null);
+        } catch (Exception e) {
+            System.out.println("\n" + e.getMessage());
+        }
+
+        return gson.fromJson(json, LeadList.class);
     }
 
     /**
-     * Method to get a specific unit in a facility
-     * @param unit_id - id number of unit in facility
-     * @return Specific Unit
+     * Method to create a lead
+     * @param facility_id
+     * @param paymentMethodData
+     * @param leadData
+     * @param options
+     * @return Specific lead obj
      * @throws Exception
      */
-    public SpecificUnit getSpecificUnit(String facility_id, String unit_id, Options options) throws Exception {
-        String json = forward( "GET", facility_id + "/units/" + unit_id + load(options), null);
+    public SpecificLead createLead(String facility_id, PaymentMethod paymentMethodData, Lead leadData, Options options) {
+        JsonObject param = new JsonObject();
+        param.add("payment_method", gson.toJsonTree(paymentMethodData));
+        param.add("lead", gson.toJsonTree(leadData));
 
-        return gson.fromJson(json, SpecificUnit.class);
+        String bodyData = gson.toJson(param);
+        String json = "";
+
+        try {
+            json = forward("POST", facility_id + "/leads" + load(options), bodyData);
+        } catch (Exception e) {
+            System.out.println("\n" + e.getMessage());
+        }
+
+        return gson.fromJson(json, SpecificLead.class);
     }
 
     /**
-     * Method to get all available units in a facility
-     * @return Unit List Response
+     * Method to delete existing lead (should work)
+     * @param facility_id
+     * @param lead_id
+     * @param leadData
+     * @param options
+     * @return Specific Lead
      * @throws Exception
      */
-    public UnitList getAvailableUnits(String facility_id, Options options) throws Exception {
-        String json = forward("GET", facility_id + "/units/available" + load(options), null);
+    public SpecificLead deleteLead(String facility_id, String lead_id, DeleteLead leadData, Options options) {
+        JsonObject lead = new JsonObject();
+        lead.add("lead", gson.toJsonTree(leadData));
 
-        return gson.fromJson(json, UnitList.class);
+        String bodyData = gson.toJson(lead);
+        String json = "";
+
+        try {
+            json = forward("DELETE", facility_id + "/leads/" + lead_id + load(options), bodyData);
+        } catch (Exception e) {
+            System.out.println("\n" + e.getMessage());
+        }
+
+        return gson.fromJson(json, SpecificLead.class);
     }
 
     //Tenants
@@ -299,15 +327,21 @@ public class StoredgeClient {
      * Method to sign up a tenant
      * @param tenant_id - Id of tenant to be signed up
      * @param tenantData - Tenant data (password and username)
-     * @return Tenant Response
+     * @return Tenant object
      * @throws Exception
      */
-    public SpecificTenant tenantSignUp(String facility_id, String tenant_id, Tenant tenantData, Options options) throws Exception {
+    public SpecificTenant tenantSignUp(String facility_id, String tenant_id, Tenant tenantData, Options options) {
         JsonObject tenant = new JsonObject();
         tenant.add("tenant", gson.toJsonTree(tenantData));
 
         String bodyData = gson.toJson(tenant);
-        String json = forward("POST", facility_id + "/tenants/" + tenant_id + "/sign_up" + load(options), bodyData);
+        String json = "";
+
+        try {
+            json = forward("POST", facility_id + "/tenants/" + tenant_id + "/sign_up" + load(options), bodyData);
+        } catch (Exception e) {
+            System.out.println("\n" + e.getMessage());
+        }
 
         return gson.fromJson(json, SpecificTenant.class);
     }
@@ -316,15 +350,21 @@ public class StoredgeClient {
      * Method to change password for tenant
      * @param tenant_id - Id of tenant
      * @param tenantData - Tenant data (current password, new password)
-     * @return Tenant Response
+     * @return Tenant object
      * @throws Exception
      */
-    public SpecificTenant tenantChangePassword(String facility_id, String tenant_id, Tenant tenantData, Options options) throws Exception {
+    public SpecificTenant tenantChangePassword(String facility_id, String tenant_id, Tenant tenantData, Options options) {
         JsonObject tenant = new JsonObject();
         tenant.add("tenant", gson.toJsonTree(tenantData));
 
         String bodyData = gson.toJson(tenant);
-        String json = forward("PUT", facility_id + "/tenants/" + tenant_id + "/change_password" + load(options), bodyData);
+        String json = "";
+
+        try {
+            json = forward("PUT", facility_id + "/tenants/" + tenant_id + "/change_password" + load(options), bodyData);
+        } catch (Exception e) {
+            System.out.println("\n" + e.getMessage());
+        }
 
         return gson.fromJson(json, SpecificTenant.class);
     }
@@ -338,34 +378,133 @@ public class StoredgeClient {
      * @return Tenant Response
      * @throws Exception
      */
-    public SpecificTenant UpdateTenant(String facility_id, String tenant_id, Tenant tenantData, Options options) throws Exception {
+    public SpecificTenant UpdateTenant(String facility_id, String tenant_id, Tenant tenantData, Options options) {
         JsonObject tenant = new JsonObject();
         tenant.add("tenant", gson.toJsonTree(tenantData));
 
         String bodyData = gson.toJson(tenant);
-        String json = forward("PATCH", facility_id + "/tenants/" + tenant_id + load(options), bodyData);
+        String json = "";
+
+        try {
+            json = forward("PATCH", facility_id + "/tenants/" + tenant_id + load(options), bodyData);
+        } catch (Exception e) {
+            System.out.println("\n" + e.getMessage());
+        }
 
         return gson.fromJson(json, SpecificTenant.class);
     }
 
-    //Leads
-
+    //Unit groups
     /**
-     * Method to delete existing lead (should work)
+     * Method to get all unit groups
      * @param facility_id
-     * @param lead_id
-     * @param leadData
      * @param options
-     * @return Specific Lead
+     * @return UnitGroupList obj
      * @throws Exception
      */
-    public SpecificLead deleteLead(String facility_id, String lead_id, DeleteLead leadData, Options options) throws Exception {
-        JsonObject lead = new JsonObject();
-        lead.add("lead", gson.toJsonTree(leadData));
+    public UnitGroupList getUnitGroups(String facility_id, Options options) {
+        String json = "";
 
-        String bodyData = gson.toJson(lead);
-        String json = forward("DELETE", facility_id + "/leads/" + lead_id + load(options), bodyData);
+        try {
+            json = forward("GET", facility_id + "/unit_groups" + load(options), null);
+        } catch (Exception e) {
+            System.out.println("\n" + e.getMessage());
+        }
 
-        return gson.fromJson(json, SpecificLead.class);
+        return gson.fromJson(json, UnitGroupList.class);
     }
+
+    /**
+     * Method to get specific unit group
+     * @param facility_id
+     * @param unit_group_id
+     * @param options
+     * @return Specific Unit Group obj
+     * @throws Exception
+     */
+    public SpecificUnitGroup getSpecificUnitGroup(String facility_id, String unit_group_id, Options options) {
+        String json = "";
+
+        try {
+            json = forward("GET", facility_id + "/unit_groups/" + unit_group_id + load(options), null);
+        } catch (Exception e) {
+            System.out.println("\n" + e.getMessage());
+        }
+
+        return gson.fromJson(json, SpecificUnitGroup.class);
+    }
+
+    /**
+     * Method to get units in specific unit group
+     * @param facility_id
+     * @param unit_group_id
+     * @param options
+     * @return Unit List obj
+     * @throws Exception
+     */
+    public UnitList getUnitGroupUnits(String facility_id, String unit_group_id, Options options) {
+        String json = "";
+
+        try {
+            json = forward("GET", facility_id + "/unit_groups/" + unit_group_id + "/units" + load(options), null);
+        } catch (Exception e) {
+            System.out.println("\n" + e.getMessage());
+        }
+
+        return gson.fromJson(json, UnitList.class);
+    }
+
+    //Units
+    /**
+     * Method to get all units in a facility
+     * @return List of units in facility
+     * @throws Exception
+     */
+    public UnitList getAllUnits(String facility_id, Options options) {
+        String json = "";
+
+        try {
+            json = forward("GET", facility_id + "/units" + load(options), null);
+        } catch (Exception e) {
+            System.out.println("\n" + e.getMessage());
+        }
+
+        return gson.fromJson(json, UnitList.class);
+    }
+
+    /**
+     * Method to get a specific unit in a facility
+     * @param unit_id - id number of unit in facility
+     * @return Specific unit in facility
+     * @throws Exception
+     */
+    public SpecificUnit getSpecificUnit(String facility_id, String unit_id, Options options) {
+        String json = "";
+
+        try {
+            json = forward("GET", facility_id + "/units/" + unit_id + load(options), null);
+        } catch (Exception e) {
+            System.out.println("\n" + e.getMessage());
+        }
+
+        return gson.fromJson(json, SpecificUnit.class);
+    }
+
+    /**
+     * Method to get all available units in a facility
+     * @return List of available units in facility
+     * @throws Exception
+     */
+    public UnitList getAvailableUnits(String facility_id, Options options) {
+        String json = "";
+
+        try {
+            json = forward("GET", facility_id + "/units/available" + load(options), null);
+        } catch (Exception e) {
+            System.out.println("\n" + e.getMessage());
+        }
+
+        return gson.fromJson(json, UnitList.class);
+    }
+
 }

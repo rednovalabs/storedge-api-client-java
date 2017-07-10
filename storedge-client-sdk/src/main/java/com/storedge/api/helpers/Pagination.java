@@ -4,12 +4,12 @@ package main.java.com.storedge.api.helpers;
  * Created by vchadha on 7/5/17.
  */
 public class Pagination {
-    private int current_page;
-    private int total_pages;
-    private int total_entries;
-    private int per_page;
-    private int previous_page;
-    private int next_page;
+    private Integer current_page;
+    private Integer total_pages;
+    private Integer total_entries;
+    private Integer per_page;
+    private Integer previous_page;
+    private Integer next_page;
 
     public Pagination(int current_page, int total_pages, int total_entries, int per_page, int previous_page, int next_page) {
         this.current_page = current_page;

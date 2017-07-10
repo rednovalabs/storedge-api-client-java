@@ -14,15 +14,15 @@ public class Lead {
     private String confirmation_number;
     private String kind;
     private String size;
-    private int floor;
-    private double quoted_rate;
+    private Integer floor;
+    private Double quoted_rate;
     private String desired_move_in_date;
     private String desired_unit_size_and_price;
-    private boolean urgent;
+    private Boolean urgent;
     private ExtraDetails extra_details;
-    private boolean reservation_fee_required;
+    private Boolean reservation_fee_required;
     private String next_action_at;
-    private boolean closed;
+    private Boolean closed;
     private String status;
     private String started_at;
     private String created_at;
@@ -30,34 +30,34 @@ public class Lead {
     private String reserved_at;
     private String cancelled_at;
     private String next_lead_action;
-    private int next_lead_action_index;
+    private Integer next_lead_action_index;
     private String source_name;
     private String tenant_id;
     private String source_id;
-    private double reduced_price;
-    private double due_at_move_in;
-    private double due_monthly;
+    private Double reduced_price;
+    private Double due_at_move_in;
+    private Double due_monthly;
     private String length_of_stay_id;
-    private int reservation_window;
-    private boolean within_reservation_window;
-    private boolean wait_list;
-    private boolean wait_list_available;
-    private boolean moving_labor;
-    private boolean moving_labor_contacted_already;
-    private boolean free_truck;
-    private boolean plant_a_tree;
-    private boolean bilingual_agent;
+    private Integer reservation_window;
+    private Boolean within_reservation_window;
+    private Boolean wait_list;
+    private Boolean wait_list_available;
+    private Boolean moving_labor;
+    private Boolean moving_labor_contacted_already;
+    private Boolean free_truck;
+    private Boolean plant_a_tree;
+    private Boolean bilingual_agent;
     private String facility_time_zone;
-    private boolean has_paid_reservation_fee;
+    private Boolean has_paid_reservation_fee;
     private Tenant tenant;
     private Unit unit;
-    private int length_of_stay;
+    private Integer length_of_stay;
     private SuccessfulPaymentEvent[] successful_payment_events;
     private String caller_phone_number;
     private UnitAmenity[] unit_amenities;
     private CurrentUser current_user;
     private UnitType unit_type;
-    private String close_reason;
+    private CloseReason close_reason;
     private InvoiceableItem[] invoiceable_fees;
     private DiscountPlan[] discount_plans;
     private LeadContents[] lead_contents;
@@ -66,20 +66,33 @@ public class Lead {
     private String channel_id;
     private String confirmation_email;
 
+    private TenantAttributes tenant_attributes;
+    private Boolean is_reservation;
+    private String unit_id;
+    private String call_source;
+    private String dnis;
+    private String close_reason_id;
+    private String lead_action_performed;
+    private Integer lead_action_performed_index;
+    private Note[] notes_attributes;
+    private PhoneNumber caller_phone_number_attributes;
+
     public Lead() {
     }
 
-    public Lead(String id, String facility_id, String caller_first_name, String caller_last_name, String confirmation_number, String kind,
-                String size, int floor, double quoted_rate, String desired_move_in_date, String desired_unit_size_and_price, boolean urgent,
-                ExtraDetails extra_details, boolean reservation_fee_required, String next_action_at, boolean closed, String status, String started_at,
-                String created_at, String moved_in_at, String reserved_at, String cancelled_at, String next_lead_action, int next_lead_action_index,
-                String source_name, String tenant_id, String source_id, double reduced_price, double due_at_move_in, double due_monthly,
-                String length_of_stay_id, int reservation_window, boolean within_reservation_window, boolean wait_list, boolean wait_list_available,
-                boolean moving_labor, boolean moving_labor_contacted_already, boolean free_truck, boolean plant_a_tree, boolean bilingual_agent,
-                String facility_time_zone, boolean has_paid_reservation_fee, Tenant tenant, Unit unit, int length_of_stay,
+    public Lead(String id, String facility_id, String caller_first_name, String caller_last_name, String confirmation_number,
+                String kind, String size, Integer floor, Double quoted_rate, String desired_move_in_date, String desired_unit_size_and_price,
+                Boolean urgent, ExtraDetails extra_details, Boolean reservation_fee_required, String next_action_at, Boolean closed, String status,
+                String started_at, String created_at, String moved_in_at, String reserved_at, String cancelled_at, String next_lead_action,
+                Integer next_lead_action_index, String source_name, String tenant_id, String source_id, Double reduced_price, Double due_at_move_in,
+                Double due_monthly, String length_of_stay_id, Integer reservation_window, Boolean within_reservation_window, Boolean wait_list,
+                Boolean wait_list_available, Boolean moving_labor, Boolean moving_labor_contacted_already, Boolean free_truck, Boolean plant_a_tree,
+                Boolean bilingual_agent, String facility_time_zone, Boolean has_paid_reservation_fee, Tenant tenant, Unit unit, Integer length_of_stay,
                 SuccessfulPaymentEvent[] successful_payment_events, String caller_phone_number, UnitAmenity[] unit_amenities, CurrentUser current_user,
-                UnitType unit_type, String close_reason, InvoiceableItem[] invoiceable_fees, DiscountPlan[] discount_plans, LeadContents[] lead_contents,
-                UnitGroup unit_group, CreatedBy created_by, String channel_id, String confirmation_email) {
+                UnitType unit_type, CloseReason close_reason, InvoiceableItem[] invoiceable_fees, DiscountPlan[] discount_plans, LeadContents[] lead_contents,
+                UnitGroup unit_group, CreatedBy created_by, String channel_id, String confirmation_email, TenantAttributes tenant_attributes, Boolean is_reservation,
+                String unit_id, String call_source, String dnis, String close_reason_id, String lead_action_performed, Integer lead_action_performed_index,
+                Note[] notes_attributes, PhoneNumber caller_phone_number_attributes) {
         this.id = id;
         this.facility_id = facility_id;
         this.caller_first_name = caller_first_name;
@@ -138,6 +151,16 @@ public class Lead {
         this.created_by = created_by;
         this.channel_id = channel_id;
         this.confirmation_email = confirmation_email;
+        this.tenant_attributes = tenant_attributes;
+        this.is_reservation = is_reservation;
+        this.unit_id = unit_id;
+        this.call_source = call_source;
+        this.dnis = dnis;
+        this.close_reason_id = close_reason_id;
+        this.lead_action_performed = lead_action_performed;
+        this.lead_action_performed_index = lead_action_performed_index;
+        this.notes_attributes = notes_attributes;
+        this.caller_phone_number_attributes = caller_phone_number_attributes;
     }
 
     public String getId() {
@@ -196,19 +219,19 @@ public class Lead {
         this.size = size;
     }
 
-    public int getFloor() {
+    public Integer getFloor() {
         return floor;
     }
 
-    public void setFloor(int floor) {
+    public void setFloor(Integer floor) {
         this.floor = floor;
     }
 
-    public double getQuoted_rate() {
+    public Double getQuoted_rate() {
         return quoted_rate;
     }
 
-    public void setQuoted_rate(double quoted_rate) {
+    public void setQuoted_rate(Double quoted_rate) {
         this.quoted_rate = quoted_rate;
     }
 
@@ -228,11 +251,11 @@ public class Lead {
         this.desired_unit_size_and_price = desired_unit_size_and_price;
     }
 
-    public boolean isUrgent() {
+    public Boolean getUrgent() {
         return urgent;
     }
 
-    public void setUrgent(boolean urgent) {
+    public void setUrgent(Boolean urgent) {
         this.urgent = urgent;
     }
 
@@ -244,11 +267,11 @@ public class Lead {
         this.extra_details = extra_details;
     }
 
-    public boolean isReservation_fee_required() {
+    public Boolean getReservation_fee_required() {
         return reservation_fee_required;
     }
 
-    public void setReservation_fee_required(boolean reservation_fee_required) {
+    public void setReservation_fee_required(Boolean reservation_fee_required) {
         this.reservation_fee_required = reservation_fee_required;
     }
 
@@ -260,11 +283,11 @@ public class Lead {
         this.next_action_at = next_action_at;
     }
 
-    public boolean isClosed() {
+    public Boolean getClosed() {
         return closed;
     }
 
-    public void setClosed(boolean closed) {
+    public void setClosed(Boolean closed) {
         this.closed = closed;
     }
 
@@ -324,11 +347,11 @@ public class Lead {
         this.next_lead_action = next_lead_action;
     }
 
-    public int getNext_lead_action_index() {
+    public Integer getNext_lead_action_index() {
         return next_lead_action_index;
     }
 
-    public void setNext_lead_action_index(int next_lead_action_index) {
+    public void setNext_lead_action_index(Integer next_lead_action_index) {
         this.next_lead_action_index = next_lead_action_index;
     }
 
@@ -356,27 +379,27 @@ public class Lead {
         this.source_id = source_id;
     }
 
-    public double getReduced_price() {
+    public Double getReduced_price() {
         return reduced_price;
     }
 
-    public void setReduced_price(double reduced_price) {
+    public void setReduced_price(Double reduced_price) {
         this.reduced_price = reduced_price;
     }
 
-    public double getDue_at_move_in() {
+    public Double getDue_at_move_in() {
         return due_at_move_in;
     }
 
-    public void setDue_at_move_in(double due_at_move_in) {
+    public void setDue_at_move_in(Double due_at_move_in) {
         this.due_at_move_in = due_at_move_in;
     }
 
-    public double getDue_monthly() {
+    public Double getDue_monthly() {
         return due_monthly;
     }
 
-    public void setDue_monthly(double due_monthly) {
+    public void setDue_monthly(Double due_monthly) {
         this.due_monthly = due_monthly;
     }
 
@@ -388,75 +411,75 @@ public class Lead {
         this.length_of_stay_id = length_of_stay_id;
     }
 
-    public int getReservation_window() {
+    public Integer getReservation_window() {
         return reservation_window;
     }
 
-    public void setReservation_window(int reservation_window) {
+    public void setReservation_window(Integer reservation_window) {
         this.reservation_window = reservation_window;
     }
 
-    public boolean isWithin_reservation_window() {
+    public Boolean getWithin_reservation_window() {
         return within_reservation_window;
     }
 
-    public void setWithin_reservation_window(boolean within_reservation_window) {
+    public void setWithin_reservation_window(Boolean within_reservation_window) {
         this.within_reservation_window = within_reservation_window;
     }
 
-    public boolean isWait_list() {
+    public Boolean getWait_list() {
         return wait_list;
     }
 
-    public void setWait_list(boolean wait_list) {
+    public void setWait_list(Boolean wait_list) {
         this.wait_list = wait_list;
     }
 
-    public boolean isWait_list_available() {
+    public Boolean getWait_list_available() {
         return wait_list_available;
     }
 
-    public void setWait_list_available(boolean wait_list_available) {
+    public void setWait_list_available(Boolean wait_list_available) {
         this.wait_list_available = wait_list_available;
     }
 
-    public boolean isMoving_labor() {
+    public Boolean getMoving_labor() {
         return moving_labor;
     }
 
-    public void setMoving_labor(boolean moving_labor) {
+    public void setMoving_labor(Boolean moving_labor) {
         this.moving_labor = moving_labor;
     }
 
-    public boolean isMoving_labor_contacted_already() {
+    public Boolean getMoving_labor_contacted_already() {
         return moving_labor_contacted_already;
     }
 
-    public void setMoving_labor_contacted_already(boolean moving_labor_contacted_already) {
+    public void setMoving_labor_contacted_already(Boolean moving_labor_contacted_already) {
         this.moving_labor_contacted_already = moving_labor_contacted_already;
     }
 
-    public boolean isFree_truck() {
+    public Boolean getFree_truck() {
         return free_truck;
     }
 
-    public void setFree_truck(boolean free_truck) {
+    public void setFree_truck(Boolean free_truck) {
         this.free_truck = free_truck;
     }
 
-    public boolean isPlant_a_tree() {
+    public Boolean getPlant_a_tree() {
         return plant_a_tree;
     }
 
-    public void setPlant_a_tree(boolean plant_a_tree) {
+    public void setPlant_a_tree(Boolean plant_a_tree) {
         this.plant_a_tree = plant_a_tree;
     }
 
-    public boolean isBilingual_agent() {
+    public Boolean getBilingual_agent() {
         return bilingual_agent;
     }
 
-    public void setBilingual_agent(boolean bilingual_agent) {
+    public void setBilingual_agent(Boolean bilingual_agent) {
         this.bilingual_agent = bilingual_agent;
     }
 
@@ -468,11 +491,11 @@ public class Lead {
         this.facility_time_zone = facility_time_zone;
     }
 
-    public boolean isHas_paid_reservation_fee() {
+    public Boolean getHas_paid_reservation_fee() {
         return has_paid_reservation_fee;
     }
 
-    public void setHas_paid_reservation_fee(boolean has_paid_reservation_fee) {
+    public void setHas_paid_reservation_fee(Boolean has_paid_reservation_fee) {
         this.has_paid_reservation_fee = has_paid_reservation_fee;
     }
 
@@ -492,11 +515,11 @@ public class Lead {
         this.unit = unit;
     }
 
-    public int getLength_of_stay() {
+    public Integer getLength_of_stay() {
         return length_of_stay;
     }
 
-    public void setLength_of_stay(int length_of_stay) {
+    public void setLength_of_stay(Integer length_of_stay) {
         this.length_of_stay = length_of_stay;
     }
 
@@ -540,11 +563,11 @@ public class Lead {
         this.unit_type = unit_type;
     }
 
-    public String getClose_reason() {
+    public CloseReason getClose_reason() {
         return close_reason;
     }
 
-    public void setClose_reason(String close_reason) {
+    public void setClose_reason(CloseReason close_reason) {
         this.close_reason = close_reason;
     }
 
@@ -602,5 +625,85 @@ public class Lead {
 
     public void setConfirmation_email(String confirmation_email) {
         this.confirmation_email = confirmation_email;
+    }
+
+    public TenantAttributes getTenant_attributes() {
+        return tenant_attributes;
+    }
+
+    public void setTenant_attributes(TenantAttributes tenant_attributes) {
+        this.tenant_attributes = tenant_attributes;
+    }
+
+    public Boolean getIs_reservation() {
+        return is_reservation;
+    }
+
+    public void setIs_reservation(Boolean is_reservation) {
+        this.is_reservation = is_reservation;
+    }
+
+    public String getUnit_id() {
+        return unit_id;
+    }
+
+    public void setUnit_id(String unit_id) {
+        this.unit_id = unit_id;
+    }
+
+    public String getCall_source() {
+        return call_source;
+    }
+
+    public void setCall_source(String call_source) {
+        this.call_source = call_source;
+    }
+
+    public String getDnis() {
+        return dnis;
+    }
+
+    public void setDnis(String dnis) {
+        this.dnis = dnis;
+    }
+
+    public String getClose_reason_id() {
+        return close_reason_id;
+    }
+
+    public void setClose_reason_id(String close_reason_id) {
+        this.close_reason_id = close_reason_id;
+    }
+
+    public String getLead_action_performed() {
+        return lead_action_performed;
+    }
+
+    public void setLead_action_performed(String lead_action_performed) {
+        this.lead_action_performed = lead_action_performed;
+    }
+
+    public Integer getLead_action_performed_index() {
+        return lead_action_performed_index;
+    }
+
+    public void setLead_action_performed_index(Integer lead_action_performed_index) {
+        this.lead_action_performed_index = lead_action_performed_index;
+    }
+
+    public Note[] getNotes_attributes() {
+        return notes_attributes;
+    }
+
+    public void setNotes_attributes(Note[] notes_attributes) {
+        this.notes_attributes = notes_attributes;
+    }
+
+    public PhoneNumber getCaller_phone_number_attributes() {
+        return caller_phone_number_attributes;
+    }
+
+    public void setCaller_phone_number_attributes(PhoneNumber caller_phone_number_attributes) {
+        this.caller_phone_number_attributes = caller_phone_number_attributes;
     }
 }

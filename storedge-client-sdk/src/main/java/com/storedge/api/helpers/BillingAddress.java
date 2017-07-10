@@ -12,11 +12,11 @@ public class BillingAddress {
     private String postal;
     private String country;
     private String full_address;
-    private double latitude;
-    private double longitude;
+    private Double latitude;
+    private Double longitude;
     private String time_zone_id;
     private String time_zone_offset;
-    private boolean invalid_data;
+    private Boolean invalid_data;
     private String label;
 
     public BillingAddress() {

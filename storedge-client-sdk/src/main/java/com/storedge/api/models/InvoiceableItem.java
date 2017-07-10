@@ -10,21 +10,21 @@ public class InvoiceableItem {
     private String product_code;
     private String kind;
     private String description;
-    private boolean required_at_move_in;
-    private boolean required_at_transfer;
-    private double amount;
+    private Boolean required_at_move_in;
+    private Boolean required_at_transfer;
+    private Double amount;
     private String short_description;
-    private boolean show_in_sales_center;
-    private double tax_total;
-    private double total;
+    private Boolean show_in_sales_center;
+    private Double tax_total;
+    private Double total;
     private InvoiceableAmounts[] invoiceable_amounts;
 
     public InvoiceableItem() {
     }
 
-    public InvoiceableItem(String id, String product_code, String kind, String description, boolean required_at_move_in,
-                           boolean required_at_transfer, double amount, String short_description, boolean show_in_sales_center,
-                           double tax_total, double total, InvoiceableAmounts[] invoiceable_amounts) {
+    public InvoiceableItem(String id, String product_code, String kind, String description, Boolean required_at_move_in,
+                           Boolean required_at_transfer, Double amount, String short_description, Boolean show_in_sales_center,
+                           Double tax_total, Double total, InvoiceableAmounts[] invoiceable_amounts) {
         this.id = id;
         this.product_code = product_code;
         this.kind = kind;
@@ -71,27 +71,27 @@ public class InvoiceableItem {
         this.description = description;
     }
 
-    public boolean isRequired_at_move_in() {
+    public Boolean getRequired_at_move_in() {
         return required_at_move_in;
     }
 
-    public void setRequired_at_move_in(boolean required_at_move_in) {
+    public void setRequired_at_move_in(Boolean required_at_move_in) {
         this.required_at_move_in = required_at_move_in;
     }
 
-    public boolean isRequired_at_transfer() {
+    public Boolean getRequired_at_transfer() {
         return required_at_transfer;
     }
 
-    public void setRequired_at_transfer(boolean required_at_transfer) {
+    public void setRequired_at_transfer(Boolean required_at_transfer) {
         this.required_at_transfer = required_at_transfer;
     }
 
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
@@ -103,27 +103,27 @@ public class InvoiceableItem {
         this.short_description = short_description;
     }
 
-    public boolean isShow_in_sales_center() {
+    public Boolean getShow_in_sales_center() {
         return show_in_sales_center;
     }
 
-    public void setShow_in_sales_center(boolean show_in_sales_center) {
+    public void setShow_in_sales_center(Boolean show_in_sales_center) {
         this.show_in_sales_center = show_in_sales_center;
     }
 
-    public double getTax_total() {
+    public Double getTax_total() {
         return tax_total;
     }
 
-    public void setTax_total(double tax_total) {
+    public void setTax_total(Double tax_total) {
         this.tax_total = tax_total;
     }
 
-    public double getTotal() {
+    public Double getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
 

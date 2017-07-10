@@ -5,9 +5,9 @@ package main.java.com.storedge.api.helpers;
  */
 public class InvoiceableAmounts {
     private String id;
-    private double amount;
+    private Double amount;
     private String kind;
-    private double limit;
+    private Double limit;
 
     public InvoiceableAmounts() {
     }

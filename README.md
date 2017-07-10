@@ -64,7 +64,7 @@ Units (Page 2/5):
 • 302
 • 400
 
-Unit 100 - group id: 3623b02f-e41c-4f21-8db1-c9a79c73ae85
+Unit 201 - group id: [ID]
 
 Available units:
 • 200
@@ -74,4 +74,17 @@ Available units:
 • 502
 
 awesome_o_5000 has signed up!
+
+Units (Page 1/1):
+• 100
+• 101
+• 102
+
+Unit group amenity 1 id: [ID]
+
+5th unit group name: [NAME]
+
+1st lead desired move in data: 2017-07-12
+
+New lead, first name: John
 ```

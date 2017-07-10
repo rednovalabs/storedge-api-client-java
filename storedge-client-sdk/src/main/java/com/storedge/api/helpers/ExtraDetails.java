@@ -4,11 +4,11 @@ package main.java.com.storedge.api.helpers;
  * Created by vchadha on 7/5/17.
  */
 public class ExtraDetails {
-    private boolean bilingual_agent;
-    private boolean free_truck;
-    private boolean moving_labor;
-    private boolean moving_labor_contacted_already;
-    private boolean plant_a_tree;
+    private Boolean bilingual_agent;
+    private Boolean free_truck;
+    private Boolean moving_labor;
+    private Boolean moving_labor_contacted_already;
+    private Boolean plant_a_tree;
     private String call_source;
     private String dnis;
     private String dialogtech_session_id;

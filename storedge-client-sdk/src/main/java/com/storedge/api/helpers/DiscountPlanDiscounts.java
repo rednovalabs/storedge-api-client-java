@@ -6,8 +6,8 @@ package main.java.com.storedge.api.helpers;
 public class DiscountPlanDiscounts {
     private String id;
     private String discount_type;
-    private int month_number;
-    private double amount;
+    private Integer month_number;
+    private Double amount;
 
     public DiscountPlanDiscounts() {
     }

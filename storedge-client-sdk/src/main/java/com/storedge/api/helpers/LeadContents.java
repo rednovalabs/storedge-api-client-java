@@ -7,7 +7,7 @@ public class LeadContents {
     private String id;
     private String name;
     private String company_id;
-    private boolean deleted;
+    private Boolean deleted;
     private String deleted_on;
     private String deleted_by_id;
     private String created_at;

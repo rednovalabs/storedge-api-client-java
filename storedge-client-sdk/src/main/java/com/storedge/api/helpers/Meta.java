@@ -5,12 +5,14 @@ package main.java.com.storedge.api.helpers;
  */
 public class Meta {
     private Pagination pagination;
-    private int status_code;
+    private Integer status_code;
     private String status_cat;
     private String status_message;
     private String request_method;
-    private int error_code;
+    private Integer error_code;
     private String request_id;
+
+    private String message;
 
     public Meta(Pagination pagination, int status_code, String status_cat, String status_message, String request_method, int error_code, String request_id) {
         this.pagination = pagination;

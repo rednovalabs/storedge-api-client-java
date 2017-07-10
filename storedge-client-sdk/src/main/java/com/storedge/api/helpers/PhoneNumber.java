@@ -5,7 +5,7 @@ package main.java.com.storedge.api.helpers;
  */
 public class PhoneNumber {
     private String id;
-    private boolean primary;
+    private Boolean primary;
     private String source;
     private String number;
     private String formatted_number;

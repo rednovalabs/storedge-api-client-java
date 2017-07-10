@@ -5,140 +5,34 @@ package main.java.com.storedge.api.models;
  */
 public class Unit {
 
-    /**
-     * Unit id number
-     */
     private String id;
-
-    /**
-     * Unit name
-     */
     private String name;
-
-    /**
-     * Unit description
-     */
     private String description;
-
-    /**
-     * Unit width
-     */
-    private double width;
-
-    /**
-     * Unit length
-     */
-    private double length;
-
-    /**
-     * Unit height
-     */
-    private double height;
-
-    /**
-     * Unit door height
-     */
-    private double door_height;
-
-    /**
-     * Unit door width
-     */
-    private double door_width;
-
-    /**
-     * Unit door type
-     */
+    private Double width;
+    private Double length;
+    private Double height;
+    private Double door_height;
+    private Double door_width;
     private String door_type;
-
-    /**
-     * Unit access type
-     */
     private String access_type;
-
-    /**
-     * Floor number
-     */
-    private int floor;
-
-    /**
-     * Unit size
-     */
+    private Integer floor;
     private String size;
-
-    /**
-     * Unit area
-     */
-    private double area;
-
-    /**
-     * Unit standard rate
-     */
-    private double standard_rate;
-
-    /**
-     * Unit managed rate
-     */
-    private double managed_rate;
-
-    /**
-     * Is unit available for move in
-     */
-    private boolean available_for_move_in;
-
-    /**
-     * Is unit rentable
-     */
-    private boolean rentable;
-
-    /**
-     * Unit status
-     */
+    private Double area;
+    private Double standard_rate;
+    private Double managed_rate;
+    private Boolean available_for_move_in;
+    private Boolean rentable;
     private String status;
-
-    /**
-     * Unit payment status
-     */
     private String payment_status;
-
-    /**
-     * Unit current ledger id
-     */
     private String current_ledger_id;
-
-    /**
-     * Unit current tenant id
-     */
     private String current_tenant_id;
-
-    /**
-     * Unit combinational lock number
-     */
-    private String combinational_lock_number;
-
-    /**
-     * Unit attribute description
-     */
     private String attribute_description;
-
-    /**
-     * Is unit deleted
-     */
-    private boolean deleted;
-
-    /**
-     * Array of unit amenities in unit
-     */
+    private Boolean deleted;
     private UnitAmenity[] unit_amenities;
-
-    /**
-     * Unit type
-     */
     private UnitType unit_type;
-
-    /**
-     * Unit group id number
-     */
     private String unit_group_id;
+
+    private String combinational_lock_number;
 
     /**
      * Default Constructor
@@ -146,42 +40,11 @@ public class Unit {
     public Unit() {
     }
 
-    /**
-     * Parameterized Constructor
-     * @param id
-     * @param name
-     * @param description
-     * @param width
-     * @param length
-     * @param height
-     * @param door_height
-     * @param door_width
-     * @param door_type
-     * @param access_type
-     * @param floor
-     * @param size
-     * @param area
-     * @param standard_rate
-     * @param managed_rate
-     * @param available_for_move_in
-     * @param rentable
-     * @param status
-     * @param payment_status
-     * @param current_ledger_id
-     * @param current_tenant_id
-     * @param combinational_lock_number
-     * @param attribute_description
-     * @param deleted
-     * @param unit_amenities
-     * @param unit_type
-     * @param unit_group_id
-     */
-    public Unit(String id, String name, String description, double width, double length, double height, double door_height,
-                double door_width, String door_type, String access_type, int floor, String size, double area,
-                double standard_rate, double managed_rate, boolean available_for_move_in, boolean rentable, String status,
-                String payment_status, String current_ledger_id, String current_tenant_id, String combinational_lock_number,
-                String attribute_description, boolean deleted, UnitAmenity[] unit_amenities, UnitType unit_type,
-                String unit_group_id) {
+    public Unit(String id, String name, String description, Double width, Double length, Double height, Double door_height,
+                Double door_width, String door_type, String access_type, Integer floor, String size, Double area, Double standard_rate,
+                Double managed_rate, Boolean available_for_move_in, Boolean rentable, String status, String payment_status,
+                String current_ledger_id, String current_tenant_id, String attribute_description, Boolean deleted, UnitAmenity[] unit_amenities,
+                UnitType unit_type, String unit_group_id, String combinational_lock_number) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -203,12 +66,12 @@ public class Unit {
         this.payment_status = payment_status;
         this.current_ledger_id = current_ledger_id;
         this.current_tenant_id = current_tenant_id;
-        this.combinational_lock_number = combinational_lock_number;
         this.attribute_description = attribute_description;
         this.deleted = deleted;
         this.unit_amenities = unit_amenities;
         this.unit_type = unit_type;
         this.unit_group_id = unit_group_id;
+        this.combinational_lock_number = combinational_lock_number;
     }
 
     public String getId() {
@@ -235,43 +98,43 @@ public class Unit {
         this.description = description;
     }
 
-    public double getWidth() {
+    public Double getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
+    public void setWidth(Double width) {
         this.width = width;
     }
 
-    public double getLength() {
+    public Double getLength() {
         return length;
     }
 
-    public void setLength(double length) {
+    public void setLength(Double length) {
         this.length = length;
     }
 
-    public double getHeight() {
+    public Double getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(Double height) {
         this.height = height;
     }
 
-    public double getDoor_height() {
+    public Double getDoor_height() {
         return door_height;
     }
 
-    public void setDoor_height(double door_height) {
+    public void setDoor_height(Double door_height) {
         this.door_height = door_height;
     }
 
-    public double getDoor_width() {
+    public Double getDoor_width() {
         return door_width;
     }
 
-    public void setDoor_width(double door_width) {
+    public void setDoor_width(Double door_width) {
         this.door_width = door_width;
     }
 
@@ -291,11 +154,11 @@ public class Unit {
         this.access_type = access_type;
     }
 
-    public int getFloor() {
+    public Integer getFloor() {
         return floor;
     }
 
-    public void setFloor(int floor) {
+    public void setFloor(Integer floor) {
         this.floor = floor;
     }
 
@@ -307,43 +170,43 @@ public class Unit {
         this.size = size;
     }
 
-    public double getArea() {
+    public Double getArea() {
         return area;
     }
 
-    public void setArea(double area) {
+    public void setArea(Double area) {
         this.area = area;
     }
 
-    public double getStandard_rate() {
+    public Double getStandard_rate() {
         return standard_rate;
     }
 
-    public void setStandard_rate(double standard_rate) {
+    public void setStandard_rate(Double standard_rate) {
         this.standard_rate = standard_rate;
     }
 
-    public double getManaged_rate() {
+    public Double getManaged_rate() {
         return managed_rate;
     }
 
-    public void setManaged_rate(double managed_rate) {
+    public void setManaged_rate(Double managed_rate) {
         this.managed_rate = managed_rate;
     }
 
-    public boolean isAvailable_for_move_in() {
+    public Boolean getAvailable_for_move_in() {
         return available_for_move_in;
     }
 
-    public void setAvailable_for_move_in(boolean available_for_move_in) {
+    public void setAvailable_for_move_in(Boolean available_for_move_in) {
         this.available_for_move_in = available_for_move_in;
     }
 
-    public boolean isRentable() {
+    public Boolean getRentable() {
         return rentable;
     }
 
-    public void setRentable(boolean rentable) {
+    public void setRentable(Boolean rentable) {
         this.rentable = rentable;
     }
 
@@ -379,14 +242,6 @@ public class Unit {
         this.current_tenant_id = current_tenant_id;
     }
 
-    public String getCombinational_lock_number() {
-        return combinational_lock_number;
-    }
-
-    public void setCombinational_lock_number(String combinational_lock_number) {
-        this.combinational_lock_number = combinational_lock_number;
-    }
-
     public String getAttribute_description() {
         return attribute_description;
     }
@@ -395,11 +250,11 @@ public class Unit {
         this.attribute_description = attribute_description;
     }
 
-    public boolean isDeleted() {
+    public Boolean getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(boolean deleted) {
+    public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
     }
 
@@ -425,5 +280,13 @@ public class Unit {
 
     public void setUnit_group_id(String unit_group_id) {
         this.unit_group_id = unit_group_id;
+    }
+
+    public String getCombinational_lock_number() {
+        return combinational_lock_number;
+    }
+
+    public void setCombinational_lock_number(String combinational_lock_number) {
+        this.combinational_lock_number = combinational_lock_number;
     }
 }

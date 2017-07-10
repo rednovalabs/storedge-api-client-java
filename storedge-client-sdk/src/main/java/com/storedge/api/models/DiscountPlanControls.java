@@ -6,12 +6,12 @@ package main.java.com.storedge.api.models;
 public class DiscountPlanControls {
     private String id;
     private String kind;
-    private double min_value;
-    private double max_value;
-    private boolean deleted;
+    private Double min_value;
+    private Double max_value;
+    private Boolean deleted;
     private String deleted_on;
     private String requirements_text;
-    private int applicable_discount_plans_count;
+    private Integer applicable_discount_plans_count;
     private String[] unit_amenity_ids;
     private String[] discount_plan_ids;
     private UnitType unit_type;
@@ -19,9 +19,9 @@ public class DiscountPlanControls {
     public DiscountPlanControls() {
     }
 
-    public DiscountPlanControls(String id, String kind, double min_value, double max_value, boolean deleted,
-                                String deleted_on, String requirements_text, int applicable_discount_plans_count,
-                                String[] unit_amenity_ids, String[] discount_plan_ids, UnitType unit_type) {
+    public DiscountPlanControls(String id, String kind, Double min_value, Double max_value, Boolean deleted, String deleted_on,
+                                String requirements_text, Integer applicable_discount_plans_count, String[] unit_amenity_ids,
+                                String[] discount_plan_ids, UnitType unit_type) {
         this.id = id;
         this.kind = kind;
         this.min_value = min_value;
@@ -51,27 +51,27 @@ public class DiscountPlanControls {
         this.kind = kind;
     }
 
-    public double getMin_value() {
+    public Double getMin_value() {
         return min_value;
     }
 
-    public void setMin_value(double min_value) {
+    public void setMin_value(Double min_value) {
         this.min_value = min_value;
     }
 
-    public double getMax_value() {
+    public Double getMax_value() {
         return max_value;
     }
 
-    public void setMax_value(double max_value) {
+    public void setMax_value(Double max_value) {
         this.max_value = max_value;
     }
 
-    public boolean isDeleted() {
+    public Boolean getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(boolean deleted) {
+    public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
     }
 
@@ -91,11 +91,11 @@ public class DiscountPlanControls {
         this.requirements_text = requirements_text;
     }
 
-    public int getApplicable_discount_plans_count() {
+    public Integer getApplicable_discount_plans_count() {
         return applicable_discount_plans_count;
     }
 
-    public void setApplicable_discount_plans_count(int applicable_discount_plans_count) {
+    public void setApplicable_discount_plans_count(Integer applicable_discount_plans_count) {
         this.applicable_discount_plans_count = applicable_discount_plans_count;
     }
 
